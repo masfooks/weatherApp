@@ -1,12 +1,16 @@
 export const environment = {
   production: false,
-  weatherApiBaseUrl: 'https://aerisweather1.p.rapidapi.com/forecasts/mumbai,india',
+  weatherApiBaseUrl: 'http://api.worldweatheronline.com/premium/v1/weather.ashx/',
 
-  XRapidAPIHostHeaderName: 'X-RapidAPI-Host',
+  // XRapidAPIHostHeaderName: 'X-RapidAPI-Host',
 
-  XRapidAPIHostHeaderValue: 'aerisweather1.p.rapidapi.com',
+  // XRapidAPIHostHeaderValue: 'weatherbit-v1-mashape.p.rapidapi.com',
 
-  XRapidApiKeyHeaderName: 'X-RapidAPI-Key',
+  apiKey: 'key',
 
-  XRapidApiKeyHeaderValue: 'cf405d56dbmshfe36bd08b969d5dp18a879jsn519a602df1ff',
+  apiKeyValue: '6e2a8b227e214098853153509221008',
+
+  apiResFormat: 'format',
+
+  apiResFormatValue:'json'
 };

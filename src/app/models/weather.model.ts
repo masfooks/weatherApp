@@ -1,127 +1,135 @@
 export interface WeatherData {
-  success: boolean
-  error: any
-  response: Response[]
+  data: Data
 }
 
-export interface Response {
-  loc: Loc
-  interval: string
-  periods: Period[]
-  profile: Profile
+export interface Data {
+  request: Request[]
+  current_condition: CurrentCondition[]
+  weather: Weather[]
+  ClimateAverages: ClimateAverage[]
 }
 
-export interface Loc {
-  long: number
-  lat: number
+export interface Request {
+  type: string
+  query: string
 }
 
-export interface Period {
-  timestamp: number
-  validTime: string
-  dateTimeISO: string
-  maxTempC: number
-  maxTempF: number
-  minTempC: number
-  minTempF: number
-  avgTempC: number
-  avgTempF: number
-  tempC: any
-  tempF: any
-  maxFeelslikeC: number
-  maxFeelslikeF: number
-  minFeelslikeC: number
-  minFeelslikeF: number
-  avgFeelslikeC: number
-  avgFeelslikeF: number
-  feelslikeC: number
-  feelslikeF: number
-  maxDewpointC: number
-  maxDewpointF: number
-  minDewpointC: number
-  minDewpointF: number
-  avgDewpointC: number
-  avgDewpointF: number
-  dewpointC: number
-  dewpointF: number
-  maxHumidity: number
-  minHumidity: number
-  humidity: number
-  pop: number
-  precipMM: number
-  precipIN: number
-  iceaccum: any
-  iceaccumMM: any
-  iceaccumIN: any
-  snowCM: number
-  snowIN: number
-  pressureMB: number
-  pressureIN: number
-  windDir: string
-  windDirDEG: number
-  windSpeedKTS: number
-  windSpeedKPH: number
-  windSpeedMPH: number
-  windGustKTS: number
-  windGustKPH: number
-  windGustMPH: number
-  windDirMax: string
-  windDirMaxDEG: number
-  windSpeedMaxKTS: number
-  windSpeedMaxKPH: number
-  windSpeedMaxMPH: number
-  windDirMin: string
-  windDirMinDEG: number
-  windSpeedMinKTS: number
-  windSpeedMinKPH: number
-  windSpeedMinMPH: number
-  windDir80m: string
-  windDir80mDEG: number
-  windSpeed80mKTS: number
-  windSpeed80mKPH: number
-  windSpeed80mMPH: number
-  windGust80mKTS: number
-  windGust80mKPH: number
-  windGust80mMPH: number
-  windDirMax80m: string
-  windDirMax80mDEG: number
-  windSpeedMax80mKTS: number
-  windSpeedMax80mKPH: number
-  windSpeedMax80mMPH: number
-  windDirMin80m: string
-  windDirMin80mDEG: number
-  windSpeedMin80mKTS: number
-  windSpeedMin80mKPH: number
-  windSpeedMin80mMPH: number
-  sky: number
-  cloudsCoded: string
-  weather: string
-  weatherCoded: WeatherCoded[]
-  weatherPrimary: string
-  weatherPrimaryCoded: string
-  icon: string
-  visibilityKM: number
-  visibilityMI: number
-  uvi?: number
-  solradWM2: number
-  solradMinWM2: number
-  solradMaxWM2: number
-  isDay: boolean
-  maxCoverage: string
-  sunrise: number
-  sunset: number
-  sunriseISO: string
-  sunsetISO: string
+export interface CurrentCondition {
+  observation_time: string
+  temp_C: string
+  temp_F: string
+  weatherCode: string
+  weatherIconUrl: WeatherIconUrl[]
+  weatherDesc: WeatherDesc[]
+  windspeedMiles: string
+  windspeedKmph: string
+  winddirDegree: string
+  winddir16Point: string
+  precipMM: string
+  precipInches: string
+  humidity: string
+  visibility: string
+  visibilityMiles: string
+  pressure: string
+  pressureInches: string
+  cloudcover: string
+  FeelsLikeC: string
+  FeelsLikeF: string
+  uvIndex: string
 }
 
-export interface WeatherCoded {
-  timestamp: number
-  wx: string
-  dateTimeISO: string
+export interface WeatherIconUrl {
+  value: string
 }
 
-export interface Profile {
-  tz: string
-  elevM: number
-  elevFT: number
+export interface WeatherDesc {
+  value: string
+}
+
+export interface Weather {
+  date: string
+  astronomy: Astronomy[]
+  maxtempC: string
+  maxtempF: string
+  mintempC: string
+  mintempF: string
+  avgtempC: string
+  avgtempF: string
+  totalSnow_cm: string
+  sunHour: string
+  uvIndex: string
+  hourly: Hourly[]
+}
+
+export interface Astronomy {
+  sunrise: string
+  sunset: string
+  moonrise: string
+  moonset: string
+  moon_phase: string
+  moon_illumination: string
+}
+
+export interface Hourly {
+  time: string
+  tempC: string
+  tempF: string
+  windspeedMiles: string
+  windspeedKmph: string
+  winddirDegree: string
+  winddir16Point: string
+  weatherCode: string
+  weatherIconUrl: WeatherIconUrl2[]
+  weatherDesc: WeatherDesc2[]
+  precipMM: string
+  precipInches: string
+  humidity: string
+  visibility: string
+  visibilityMiles: string
+  pressure: string
+  pressureInches: string
+  cloudcover: string
+  HeatIndexC: string
+  HeatIndexF: string
+  DewPointC: string
+  DewPointF: string
+  WindChillC: string
+  WindChillF: string
+  WindGustMiles: string
+  WindGustKmph: string
+  FeelsLikeC: string
+  FeelsLikeF: string
+  chanceofrain: string
+  chanceofremdry: string
+  chanceofwindy: string
+  chanceofovercast: string
+  chanceofsunshine: string
+  chanceoffrost: string
+  chanceofhightemp: string
+  chanceoffog: string
+  chanceofsnow: string
+  chanceofthunder: string
+  uvIndex: string
+}
+
+export interface WeatherIconUrl2 {
+  value: string
+}
+
+export interface WeatherDesc2 {
+  value: string
+}
+
+export interface ClimateAverage {
+  month: Month[]
+}
+
+export interface Month {
+  index: string
+  name: string
+  avgMinTemp: string
+  avgMinTemp_F: string
+  absMaxTemp: string
+  absMaxTemp_F: string
+  avgDailyRainfall: string
 }

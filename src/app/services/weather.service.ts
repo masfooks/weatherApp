@@ -10,18 +10,13 @@ import { WeatherData } from '../models/weather.model';
 export class WeatherService {
   constructor(private http: HttpClient) {}
 
-  getWeatherData(cityName : string, countryName: string):Observable<WeatherData> {
+  getWeatherData(cityName:string):Observable<WeatherData> {
     return this.http.get<WeatherData>(environment.weatherApiBaseUrl, {
-      headers: new HttpHeaders()
-        .set(
-          environment.XRapidAPIHostHeaderName,
-          environment.XRapidAPIHostHeaderValue
-        )
-        .set(
-          environment.XRapidApiKeyHeaderName,
-          environment.XRapidApiKeyHeaderValue
-        ),
-    
-    });
-  }
+      headers: new HttpHeaders(),
+        params: new HttpParams()
+        .set(environment.apiKey,environment.apiKeyValue)
+        .set('q', cityName)
+        .set(environment.apiResFormat,environment.apiResFormatValue)
+  })
+}
 }
