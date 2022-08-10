@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WeatherData } from './models/weather.model';
+import { CurrentCondition, Data, Hourly, Weather, WeatherData } from './models/weather.model';
 import { WeatherService } from './services/weather.service';
 
 @Component({
@@ -13,6 +13,9 @@ export class AppComponent implements OnInit{
 
   cityName:string = 'Mumbai'
   weatherData?:WeatherData;
+  mainWeather?:Weather
+  mainHrTemp?: Hourly
+  currentCondition?: CurrentCondition;
   
   ngOnInit(): void {
     
@@ -20,8 +23,15 @@ export class AppComponent implements OnInit{
       next: (response)=>{
 
         this.weatherData = response;
+        console.log(this.weatherData)
+        this.mainWeather = this.weatherData.data.weather[0]
+        this.mainHrTemp = this.mainWeather.hourly[0]
+        console.log(this.mainHrTemp.tempC)
+        this.currentCondition = this.weatherData.data.current_condition[0]
 
-        console.log(this.weatherData);
+        console.log(this.currentCondition.temp_C)
+
+        // console.log(this.mainWeather);
       }
     })
 

@@ -1,11 +1,11 @@
-<div class="container" *ngIf="weatherData">
+<div class="container" *ngIf="currentCondition">
   <div class="upper-data">
-    <img src="./../assets/Hot1.jpg" alt="Hot" *ngIf="" />
-    <img src="./../assets/Cold1.jpg" alt="Cold" *ngIf="14 <= 15" />
+    <img src="./../assets/Hot1.jpg" alt="Hot" *ngIf="currentCondition.temp_C > 15" />
+    <img src="./../assets/Cold1.jpg" alt="Cold" *ngIf="currentCondition.temp_C <= 15" />
 
     <div class="weather-data">
       <div class="location">Willington</div>
-      <div class="temperature">{{ 14.4 | number: "1.0-0" }}°C</div>
+      <div class="temperature">{{ currentCondition.temp_C | number: "1.0-0" }}°C</div>
     </div>
   </div>
   <div class="lower-data">
@@ -23,9 +23,9 @@
       <div class="info-block">
         <div class="info-block-label">
           <img src="./../assets/min.png" alt="maxTemp" />
-          <span>max</span>
+          <span>Humidity</span>
         </div>
-        <div class="info-block-value">Humidity</div>
+        <div class="info-block-value">{{currentCondition.humidity}}%</div>
       </div>
 
       <div class="info-block">

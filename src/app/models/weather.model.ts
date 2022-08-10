@@ -16,7 +16,7 @@ export interface Request {
 
 export interface CurrentCondition {
   observation_time: string
-  temp_C: string
+  temp_C: number
   temp_F: string
   weatherCode: string
   weatherIconUrl: WeatherIconUrl[]
@@ -72,7 +72,7 @@ export interface Astronomy {
 
 export interface Hourly {
   time: string
-  tempC: string
+  tempC: number
   tempF: string
   windspeedMiles: string
   windspeedKmph: string
