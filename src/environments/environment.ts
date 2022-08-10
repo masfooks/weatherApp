@@ -1,10 +1,10 @@
 export const environment = {
   production: false,
-  weatherApiBaseUrl: 'https://weatherbit-v1-mashape.p.rapidapi.com/current',
+  weatherApiBaseUrl: 'https://aerisweather1.p.rapidapi.com/forecasts/mumbai,india',
 
   XRapidAPIHostHeaderName: 'X-RapidAPI-Host',
 
-  XRapidAPIHostHeaderValue: 'weatherbit-v1-mashape.p.rapidapi.com',
+  XRapidAPIHostHeaderValue: 'aerisweather1.p.rapidapi.com',
 
   XRapidApiKeyHeaderName: 'X-RapidAPI-Key',
 
