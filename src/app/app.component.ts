@@ -3,6 +3,7 @@ import {
   CurrentCondition,
   Data,
   Hourly,
+  Request,
   Weather,
   WeatherData,
 } from './models/weather.model';
@@ -21,21 +22,30 @@ export class AppComponent implements OnInit {
   mainWeather?: Weather;
   mainHrTemp?: Hourly;
   currentCondition?: CurrentCondition;
-
+  defaultCity?:Request
   ngOnInit(): void {
-    this.weatherService.getWeatherData(this.cityName).subscribe({
+    this.getWeatherData(this.cityName);
+    this.cityName = '';
+  }
+
+  onSubmit() {
+    this.getWeatherData(this.cityName);
+    this.cityName = '';
+  }
+
+  private getWeatherData(cityName: string) {
+    this.weatherService.getWeatherData(cityName).subscribe({
       next: (response) => {
         this.weatherData = response;
-        console.log(this.weatherData);
-
         this.mainWeather = this.weatherData.data.weather[0];
-        console.log(this.mainWeather.maxtempC)
-        
         this.mainHrTemp = this.mainWeather.hourly[0];
-        console.log(this.mainHrTemp.tempC);
-
         this.currentCondition = this.weatherData.data.current_condition[0];
+        this.defaultCity = this.weatherData.data.request[0]
+        console.log(this.defaultCity.query)
 
+        console.log(this.mainHrTemp.tempC);
+        console.log(this.weatherData);
+        console.log(this.mainWeather.maxtempC);
         console.log(this.currentCondition.temp_C);
 
         // console.log(this.mainWeather);

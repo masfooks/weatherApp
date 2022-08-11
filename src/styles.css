@@ -134,7 +134,7 @@ body{
 
 .info-block-label img{
     width: 1.8em;
-    filter: invert();
+    /* filter: invert(); */
 }
 
 .info-block-label span{
