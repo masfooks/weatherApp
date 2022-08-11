@@ -22,7 +22,7 @@ export interface CurrentCondition {
   weatherIconUrl: WeatherIconUrl[]
   weatherDesc: WeatherDesc[]
   windspeedMiles: string
-  windspeedKmph: string
+  windspeedKmph: number
   winddirDegree: string
   winddir16Point: string
   precipMM: string
@@ -49,9 +49,9 @@ export interface WeatherDesc {
 export interface Weather {
   date: string
   astronomy: Astronomy[]
-  maxtempC: string
+  maxtempC: number
   maxtempF: string
-  mintempC: string
+  mintempC: number
   mintempF: string
   avgtempC: string
   avgtempF: string

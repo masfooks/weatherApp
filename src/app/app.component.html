@@ -15,14 +15,22 @@
       <div class="info-block">
         <div class="info-block-label">
           <img src="./../assets/min.png" alt="minTemp" />
-          <span>min</span>
+          <span>Min</span>
         </div>
-        <div class="info-block-value">10°C</div>
+        <div class="info-block-value">{{mainWeather?.mintempC}}°C</div>
       </div>
 
       <div class="info-block">
         <div class="info-block-label">
           <img src="./../assets/min.png" alt="maxTemp" />
+          <span>Max</span>
+        </div>
+        <div class="info-block-value">{{mainWeather?.maxtempC}}°C</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">
+          <img src="./../assets/min.png" alt="wind" />
           <span>Humidity</span>
         </div>
         <div class="info-block-value">{{currentCondition.humidity}}%</div>
@@ -30,18 +38,10 @@
 
       <div class="info-block">
         <div class="info-block-label">
-          <img src="./../assets/min.png" alt="wind" />
-          <span>min</span>
-        </div>
-        <div class="info-block-value">11 km/hC</div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
           <img src="./../assets/min.png" alt="minTemp" />
-          <span>min</span>
+          <span>Wind Speed</span>
         </div>
-        <div class="info-block-value">10°C</div>
+        <div class="info-block-value">{{currentCondition.windspeedKmph}} Km/ph</div>
       </div>
     </div>
   </div>
